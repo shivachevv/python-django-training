@@ -14,7 +14,7 @@ class Reaction(models.Model):
 
 
 class BlogPost(models.Model):
-    title = models.CharField()
+    title = models.CharField(max_length=200)
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     reactions = models.ManyToManyField(
@@ -26,9 +26,8 @@ class BlogPost(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.DateTimeField(null=True)
 
-
-def __str__(self):
-    return self.title
+    def __str__(self):
+        return self.title
 
 
 class Comment(models.Model):
