@@ -7,7 +7,7 @@ class Reaction(models.Model):
     name = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    deleted_at = models.DateTimeField(null=True)
+    deleted_at = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -24,7 +24,7 @@ class BlogPost(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    deleted_at = models.DateTimeField(null=True)
+    deleted_at = models.BooleanField(default=False)
 
     def __str__(self):
         return self.title
@@ -37,7 +37,7 @@ class Comment(models.Model):
         BlogPost, on_delete=models.CASCADE, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
-    deleted_at = models.DateTimeField(null=True)
+    deleted_at = models.BooleanField(default=False)
 
     def __str__(self):
         return self.content
