@@ -1,0 +1,7 @@
+{% extends 'layout.html' %} {% block content %}
+<ul>
+  {% for blog in blogs %}
+  <li>{{ blog.title }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
