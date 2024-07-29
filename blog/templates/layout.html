@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} Django App {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base_styles.css' %}" />
+  </head>
+  <body>
+    <nav>
+      {% if user.is_authenticated %}
+      <div class="nav-items">
+        <a href="/" class="home-link">
+          <span role="img" aria-label="Home" title="Home">HOME</span>
+        </a>
+        <a href="{% url 'authApp:login' %}">
+          <span aria-label="Blogs" title="Blogs">BLOGS</span>
+        </a>
+      </div>
+      <form class="logout" action="{% url 'authApp:logout' %}" method="post">
+        {% csrf_token %}
+        <button
+          class="logout-button"
+          aria-label="User Logout"
+          title="User Logout"
+        >
+          LOGOUT
+        </button>
+      </form>
+      {% else %}
+      <div class="nav-items">
+        <a href="/" class="home-link">
+          <span role="img" aria-label="Home" title="Home">HOME</span>
+        </a>
+        <a href="{% url 'authApp:register' %}">
+          <span aria-label="User Registration" title="User Registration"
+            >REGISTER</span
+          >
+        </a>
+        <a href="{% url 'authApp:login' %}">
+          <span aria-label="User Login" title="User Login">LOGIN</span>
+        </a>
+      </div>
+      {% endif %}
+    </nav>
+    <main>{% block content %} {% endblock %}</main>
+  </body>
+</html>
