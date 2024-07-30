@@ -1,0 +1,36 @@
+{% extends 'layout.html' %} {% block content %}
+{% load static %}
+
+{% block extrastyles %}
+    <link rel="stylesheet" type="text/css"
+        href="{% static "css/blog_post.css" %}" />
+{% endblock %}
+<h2>{{ blog.title }} by {{blog.author}}</h2>
+
+<p>{{blog.content}}</p>
+
+<div class="blog_info">
+    <div>
+        <span>
+            &#128077 - {{ blog.reactions.thumb_up }} /
+            {{ blog.reactions.thumb_down}} - &#128078;
+            </span
+            >
+        </div>
+
+        <div class='comments'>
+            <span> Comments: {{ blog.comments_count }} </span>
+            <ul>
+                {% for comment in blog.comments %} 
+                    <li class="blogs_list_item">
+                        <span class="blogs_list_item_info">
+                            {{comment.user.first_name}} {{comment.user.last_name}} commented: {{comment.content}}
+                        </span>
+                    </li>  
+                {% endfor %} 
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+
+
