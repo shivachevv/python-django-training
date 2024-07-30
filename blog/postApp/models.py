@@ -26,15 +26,15 @@ class BlogPost(models.Model):
     updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.title
+    # def __str__(self):
+    #     return self.title
 
 
 class Comment(models.Model):
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=None)
     blog_post = models.ForeignKey(
-        BlogPost, on_delete=models.CASCADE, default=None)
+        BlogPost, on_delete=models.CASCADE, default=None, related_name='comments')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.BooleanField(default=False)
