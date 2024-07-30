@@ -1,7 +1,30 @@
 {% extends 'layout.html' %} {% block content %}
-<ul>
+{% load static %}
+
+{% block extrastyles %}
+    <link rel="stylesheet" type="text/css"
+        href="{% static "css/blog_posts.css" %}" />
+{% endblock %}
+<h2>Your Blogs</h2>
+<ul class="blogs_list">
   {% for blog in blogs %}
-  <li>{{ blog.title }}</li>
+  <li class="blogs_list_item">
+    <a href="{% url 'postApp:blog' blog.id %}">
+        <div class='blogs_list_item_title'>
+            <span>{{ blog.title }} by {{blog.author}}</span>
+        </div>
+        <div class="blogs_list_item_info">
+            <span> Comments: {{ blog.comments }} </span>
+            <div>
+                <span>
+                    &#128077 - {{ blog.reactions.thumb_up }} /
+                    {{ blog.reactions.thumb_down}} - &#128078;
+                    </span
+                    >
+                </div>
+            </div>
+        </a>
+  </li>
   {% endfor %}
 </ul>
 {% endblock %}

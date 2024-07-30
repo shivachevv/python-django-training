@@ -1,0 +1,18 @@
+main {
+  background: var(--light_blue);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+main h2 {
+  border-bottom: 1px solid var(--black);
+  color: var(--black);
+  padding-bottom: 6px;
+}
+
+.comments {
+  padding: 16px;
+    margin-top: 16px;
+    border-top: 2px solid var(--black);
+}

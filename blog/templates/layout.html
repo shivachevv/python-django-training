@@ -20,8 +20,9 @@
       </div>
       <form class="logout" action="{% url 'authApp:logout' %}" method="post">
         {% csrf_token %}
+        <span>Welcome {{user.first_name}} {{user.last_name}}</span>
         <button
-          class="logout-button"
+          class="logout_button"
           aria-label="User Logout"
           title="User Logout"
         >

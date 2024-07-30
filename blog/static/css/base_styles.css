@@ -53,9 +53,14 @@ nav a:hover {
 
 nav form {
   display: flex;
+  align-items: center;
 }
 
-nav button {
+nav .logout span {
+  font-size: 16px;
+}
+
+nav .logout .logout_button {
   background: #495867;
   color: var(--white);
   padding: 8px 16px;
@@ -64,8 +69,9 @@ nav button {
   font-weight: bold;
   letter-spacing: 1px;
   transition: box-shadow 0.1s;
+  margin-left: 8px;
 }
-nav button:hover {
+nav .logout .logout_button:hover {
   box-shadow: var(--light_blue) 4px 4px;
   cursor: pointer;
 }
