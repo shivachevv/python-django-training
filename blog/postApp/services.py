@@ -1,6 +1,5 @@
-from django.http import HttpRequest
 from django.shortcuts import get_object_or_404
-from .models import BlogPost, BlogPostReaction, Comment, Reaction
+from .models import BlogPost
 from .utils import BlogPostUtils
 
 
