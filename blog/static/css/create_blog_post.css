@@ -1,0 +1,39 @@
+main {
+  background: var(--light_blue);
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+}
+
+main h2 {
+  border-bottom: 1px solid var(--black);
+  color: var(--black);
+  padding-bottom: 6px;
+}
+
+form > div {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+}
+
+form > div label {
+  margin-bottom: 4px;
+}
+
+form > button.form-submit {
+  background-color: var(--dark_grey);
+    color: var(--white);
+    padding: 8px 16px;
+    border: 0;
+    border-radius: 4px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: box-shadow 0.1s;
+    margin-top: 16px;
+  }
+
+  form > button.form-submit:hover {
+    box-shadow: var(--coral) 4px 4px;
+    cursor: pointer;
+  }

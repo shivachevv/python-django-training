@@ -5,7 +5,10 @@
     <link rel="stylesheet" type="text/css"
         href="{% static "css/blog_posts.css" %}" />
 {% endblock %}
-<h2>Your Blogs</h2>
+<div class='header'>
+    <h2>Your blogposts</h2>
+    <a href="{% url 'postApp:create_blog_post' %}">Create New!</a>
+</div>
 <ul class="blogs_list">
   {% for blog in blogs %}
   <li class="blogs_list_item">

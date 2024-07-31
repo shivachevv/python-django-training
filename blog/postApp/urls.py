@@ -5,5 +5,6 @@ app_name = 'postApp'
 
 urlpatterns = [
     path('', views.blog_posts_home_controller, name='blog_posts'),
-    path('<int:id>', views.blog_controller, name="blog"),
+    path('new-post', views.create_blog_post_controller, name='create_blog_post'),
+    path('<int:id>', views.blog_post_controller, name="blog"),
 ]
