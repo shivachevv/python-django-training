@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
-from .models import BlogPost
-from .utils import BlogPostUtils
+from ..models import BlogPost
+from ..utils import BlogPostUtils
 
 
 def get_posts(user_id: int):
