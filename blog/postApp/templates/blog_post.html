@@ -30,6 +30,15 @@
                     </li>  
                 {% endfor %} 
             </ul>
+            <form
+                class="form-with-validation"
+                action="{% url 'postApp:blog' blog.id %}"
+                method="post"
+                enctype="multipart/form-data"
+                >
+                    {% csrf_token %} {{ comment_form }}
+                <button class="form-submit">Create Comment</button>
+            </form>
         </div>
     </div>
 {% endblock %}
