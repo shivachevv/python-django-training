@@ -21,7 +21,7 @@ form > div label {
   margin-bottom: 4px;
 }
 
-form > button {
+form > button.form-submit {
   background-color: var(--dark_grey);
     color: var(--white);
     padding: 8px 16px;
@@ -33,7 +33,7 @@ form > button {
     margin-top: 16px;
   }
 
-  form > button:hover {
+  form > button.form-submit:hover {
     box-shadow: var(--coral) 4px 4px;
     cursor: pointer;
   }
