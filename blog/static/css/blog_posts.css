@@ -46,6 +46,7 @@ main .blogs_list .blogs_list_item {
   transition: all 0.2s;
   border-left: 1px solid var(--dark_blue);
   padding-left: 4px;
+  margin-top: 16px;
 }
 
 main .blogs_list .blogs_list_item:hover {
