@@ -1,0 +1,77 @@
+/* 
+ ------ COLORS --------------------------------
+ Coral: #FF6F61
+ Dark Grey: #495867
+ Dark BLue: #577399
+ Light Blue: #BDD5EA
+ White: #F7F7FF
+ */
+
+:root {
+  --coral: #ff6f61;
+  --black: #2d363f;
+  --dark_grey: #495867;
+  --dark_blue: #577399;
+  --light_blue: #bdd5ea;
+  --white: #f7f7ff;
+}
+
+body {
+  background: var(--white);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+  background: var(--coral);
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 8px;
+}
+
+nav .nav-items {
+  padding: 12px 0px;
+}
+
+nav .home-link {
+  padding-right: 3px;
+  margin-right: 8px;
+  border-right: 3px solid var(--black);
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--black);
+  transition: all 0.2s;
+}
+
+nav a:hover {
+  color: var(--white);
+}
+
+nav form {
+  display: flex;
+  align-items: center;
+}
+
+nav .logout span {
+  font-size: 16px;
+}
+
+nav .logout .logout_button {
+  background: #495867;
+  color: var(--white);
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: box-shadow 0.1s;
+  margin-left: 8px;
+}
+nav .logout .logout_button:hover {
+  box-shadow: var(--light_blue) 4px 4px;
+  cursor: pointer;
+}
