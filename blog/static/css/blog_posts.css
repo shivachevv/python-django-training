@@ -67,6 +67,12 @@ main .blogs_list .blogs_list_item_title {
 
 main .blogs_list .blogs_list_item_info {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 8px;
+}
+
+.reactions_container {
+  display: flex;
   margin-top: 8px;
 }

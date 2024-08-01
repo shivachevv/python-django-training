@@ -11,19 +11,38 @@
 </div>
 <ul class="blogs_list">
   {% for blog in blogs %}
-  <li class="blogs_list_item">
-    <a href="{% url 'postApp:blog' blog.id %}">
-        <div class='blogs_list_item_title'>
-            <span>{{ blog.title }} by {{blog.author}}</span>
-        </div>
-        <div class="blogs_list_item_info">
-            <span> Comments: {{ blog.comments }} </span>
-            <div>
-                <span>
-                    &#128077 - {{ blog.reactions.thumb_up }} /
-                    {{ blog.reactions.thumb_down}} - &#128078;
-                    </span
-                    >
+    <li class="blogs_list_item">
+        <a href="{% url 'postApp:blog' blog.id %}">
+            <div class='blogs_list_item_title'>
+                <span>{{ blog.title }} by {{blog.author}}</span>
+            </div>
+            <div class="blogs_list_item_info">
+                <span> Comments: {{ blog.comments }} </span>
+                <div class='reactions_container'>
+                    <form  action="{% url 'postApp:create_reaction_up' id=blog.id %}" method="post">
+                        {% csrf_token %}
+                        <button
+                        class="thumb_up_button"
+                        aria-label="Thumb Up"
+                        title="Thumb Up"
+                        >
+                        &#128077
+                        </button>
+                    </form>
+                    <span>
+                        - {{ blog.reactions.thumb_up }} /
+                        {{ blog.reactions.thumb_down}} - 
+                    </span>
+                    <form  action="{% url 'postApp:create_reaction_down' id=blog.id %}" method="post">
+                        {% csrf_token %}
+                        <button
+                        class="thumb_up_button"
+                        aria-label="Thumb Up"
+                        title="Thumb Up"
+                        >
+                        &#128078;
+                        </button>
+                    </form>
                 </div>
             </div>
         </a>

@@ -1,6 +1,6 @@
 from django.http import HttpRequest
 from django.shortcuts import render, redirect
-from .services import blogpost
+from .services import blogpost, reactions
 from . import forms
 from django.contrib.auth.decorators import login_required
 from .models import BlogPost
@@ -38,3 +38,17 @@ def create_blog_post_controller(request: HttpRequest):
     else:
         form = forms.CreateBlogPost()
     return render(request, 'new_blog_post.html', {'form': form})
+
+
+@login_required(login_url="auth/login")
+def create_reaction_up_controller(request: HttpRequest, id):
+
+    reactions.create_reaction('up', request, id)
+    return redirect('postApp:blog_posts')
+
+
+@login_required(login_url="auth/login")
+def create_reaction_down_controller(request: HttpRequest, id):
+
+    reactions.create_reaction('down', request, id)
+    return redirect('postApp:blog_posts')

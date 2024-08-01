@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 class Reaction(models.Model):
-    name = models.TextField()
+    name = models.TextField(unique=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
     deleted_at = models.BooleanField(default=False)
