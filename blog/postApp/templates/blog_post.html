@@ -40,6 +40,9 @@
                 <button class="form-submit">Create Comment</button>
             </form>
         </div>
+        {{post}} kkk
+        <p>Hashtags: {% for hashtag in post.hashtags %}#{{ hashtag }} {% endfor %}</p>
+
     </div>
 {% endblock %}
 
