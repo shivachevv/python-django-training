@@ -4,7 +4,7 @@ from ..utils import BlogPostUtils
 
 
 def get_posts(user_id: int):
-    blogposts = BlogPost.objects.all().filter(user_id=user_id)
+    blogposts = BlogPost.objects.all()
 
     result = []
 
@@ -27,6 +27,7 @@ def get_post(id):
     blogpost = get_object_or_404(BlogPost, pk=id)
     reactions = blogpost.reactions.all().values()
     comments = blogpost.comments.all().select_related('user')
+    hashtags = blogpost.hashtags.all()
 
     return {
         'id': blogpost.id,
@@ -36,4 +37,5 @@ def get_post(id):
         'reactions': BlogPostUtils.prettify_reactions(reactions),
         'comments': comments,
         'comments_count': len(comments),
+        'hashtags': hashtags,
     }

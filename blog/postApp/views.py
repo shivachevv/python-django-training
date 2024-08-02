@@ -13,6 +13,7 @@ def blog_posts_home_controller(request: HttpRequest):
 
 def blog_post_controller(request: HttpRequest, id):
     payload = blogpost.get_post(id)
+
     if request.method == 'POST':
         form = forms.CreateComment(request.POST)
         if form.is_valid():
@@ -31,8 +32,7 @@ def create_blog_post_controller(request: HttpRequest):
     if request.method == 'POST':
         form = forms.CreateBlogPost(request.POST)
         if form.is_valid():
-            newpost = form.save(commit=False)
-            newpost.user = request.user
+            newpost = form.save(request.user, commit=False)
             newpost.save()
             return redirect('postApp:blog_posts')
     else:
